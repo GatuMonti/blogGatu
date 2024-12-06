@@ -1,0 +1,15 @@
+.featuredPosts {
+    display: flex;
+    flex-direction: column; /* Los items se apilan en una columna */
+    align-items: center; /* Centra los items en el eje horizontal */
+    justify-content: center; /* Centra los items en el eje vertical */
+    padding: 20px;
+    gap: 20px; /* Espaciado entre los elementos */
+  }
+  
+  .featuredPosts h2 {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  

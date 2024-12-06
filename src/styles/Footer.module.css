@@ -1,0 +1,13 @@
+footer {
+  background-color: var(--background-color);
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  margin-top: auto;
+  border-top: 0.2px solid rgba(128, 128, 128, 0.3); /* Línea gris en la parte superior */
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}

@@ -1,0 +1,103 @@
+.blogCard {
+    display: flex;
+    flex-direction: column; /* Cambié a columna para alinear los elementos en vertical */
+    align-items: center;
+    justify-content: flex-start; /* Para alinear los elementos desde el principio */
+    background-color: var(--background-color-card); /* Fondo con color similar al header */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    height: 50vh;
+    width: 35vw; /* Para que ocupe todo el ancho disponible */
+  }
+  
+  .blogCardContent {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 70%; /* 80% de la tarjeta para el contenido */
+    background-color: var(--accent-color); /* Fondo del contenido */
+    border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */
+    box-sizing: border-box;
+    padding: 20px;
+  }
+  
+  .blogCardContentDatos {
+    width: 100%;
+    height: 30%; /* 20% de la tarjeta para la imagen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color); /* Fondo de la imagen */
+    border-radius: 0 0 8px 8px; /* Bordes redondeados en la parte inferior */
+  }
+  
+  .blogCardContent h3 {
+    color: var(--text-color); /* Color del texto del título */
+    font-size: 20px;
+    margin: 0;
+    padding-bottom: 10px;
+  }
+  
+  .description {
+    color: var(--text-color); /* Color del texto */
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  
+  .tag {
+    background-color: var(--secondary-color); /* Color de fondo para las etiquetas */
+    color: var(--text-color);
+    font-size: 12px;
+    padding: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+  }
+  
+  .date {
+    color: var(--text-color);
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  .blogCardImage {    
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  
+  /* Responsivos */
+  @media (max-width: 768px) {
+    .blogCard {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .blogCardImage {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .blogCardContent {
+      margin-top: 10px;
+      width: 100%;
+    }
+  
+    .blogCardContent h3 {
+      font-size: 18px;
+    }
+  }
+  

@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;  /* Asegura que los márgenes y el padding no sumen al tamaño de los elementos */
+}
+body {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;  /* Los posts se apilan verticalmente */
+  align-items: center;     /* Centra los posts horizontalmente */
+  justify-content: flex-start; /* Alinea los posts al inicio del contenedor */
+  padding: 20px;
+  margin: 0 auto; /* Centra el contenedor en la página */
+  max-width: 1200px; /* Ajusta el ancho máximo del contenedor */
+  gap: 20px; /* Espaciado entre los posts */
+}
+
+.post {
+  width: 100%;
+  max-width: 800px; /* Máximo ancho para cada post */
+  margin-bottom: 20px; /* Espaciado entre cada post */
+}
+
+  
+  
+
+  

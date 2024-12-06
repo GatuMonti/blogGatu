@@ -1,0 +1,9 @@
+:root {
+  --primary-color: #0d1925; /* Azul claro y calmado */
+  --secondary-color: #c8d8e4; /* Tonalidad más suave */
+  --accent-color: #7ea8be; /* Para pequeños acentos */
+  --text-color: #d9f0fc; /* Gris oscuro para texto */
+  --background-color:rgb(29, 33, 38); /* Fondo muy claro */
+  --background-color-card: rgba(31, 27, 27, 0.952);
+  --font-family: 'Poppins', sans-serif;  
+}
