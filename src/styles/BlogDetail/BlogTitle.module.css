@@ -1,0 +1,57 @@
+.container {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .imageContainer {
+    width: 80%;
+    height: 20vh;
+    margin: 20px auto 0;
+    overflow: hidden;
+  }
+  
+  .imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .textContainer {
+    width: 50%;
+    margin: 20px auto;
+    text-align: justify;
+  }
+  
+  .title {
+    margin-top: 20px;
+  }
+  
+  .date {
+    margin-top: 10px;
+  }
+  
+  .paragraph {
+    text-align: justify;
+    margin-bottom: 15px;
+  }
+  
+  /* Media Query para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .imageContainer {
+      width: 100%; /* Imagen ocupa el 100% del ancho */
+    }
+  
+    .textContainer {
+      width: 90%; /* El texto ocupa el 100% del ancho */
+      margin: 10px auto; /* Reducir márgenes */
+    }
+  
+    .title {
+      font-size: 1.5em; /* Reducir tamaño de fuente en móviles */
+    }
+  
+    .date {
+      font-size: 1em; /* Ajustar tamaño de fuente */
+    }
+  }
+  
