@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Footer from './components/Footer';
 import BlogDetail from './pages/BlogDetail';
 import { BlogProvider } from './utils/BlogContext';
+import DashBoardAdmin from './pages/DashBoardAdmin';
 // ... otros componentes
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog/:id" element={<BlogDetail />} />
+        <Route path="/dashboard-admin" element={<DashBoardAdmin />} />
         {/* ... otras rutas */}
       </Routes>
       <Footer />

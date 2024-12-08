@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './Navbar'; // Importa el componente Navbar
+import Navbar from './Navbar/Navbar'; // Importa el componente Navbar
 
 
 function Header() {
