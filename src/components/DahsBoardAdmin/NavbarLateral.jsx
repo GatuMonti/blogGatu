@@ -74,10 +74,14 @@ export default function NavbarLateral() {
     usuarios: false,
     comentarios: false,
     paginas: false,
+    ajustes: false,
   });
 
   const [isMobile, setIsMobile] = React.useState(false);
 
+  const drawerRef = React.useRef(null); // Usamos un ref para el Drawer
+
+  // Detectar el cambio de tamaño de la ventana y si es móvil
   React.useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 600); // O ajustar a tu umbral de mobile
@@ -85,11 +89,54 @@ export default function NavbarLateral() {
 
     window.addEventListener('resize', handleResize);
     handleResize(); // Llamar al inicio para verificar el tamaño
+
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Cerrar el Drawer si está abierto y se cambia a móvil
+  React.useEffect(() => {
+    if (isMobile && open) {
+      setOpen(false);  // Cerrar automáticamente el Drawer cuando cambia a móvil
+    }
+  }, [isMobile]); // Este useEffect se ejecuta cada vez que cambia isMobile
+
+  // Detectar clics fuera del Drawer y cerrar tanto el Drawer como los submenús
+  React.useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target) && open) {
+        setOpen(false); // Cerrar el Drawer si se hace clic fuera
+        setMenuState({
+          publicaciones: false,
+          usuarios: false,
+          comentarios: false,
+          paginas: false,
+          ajustes: false,
+        }); // Cerrar todos los submenús
+      }
+    };
+
+    if (open && !isMobile) {
+      // Solo habilitar el detector de clics si el Drawer está abierto y estamos en escritorio
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    // Limpiar el evento al desmontar el componente
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [open, isMobile]); // Asegurarse de que se ejecute cada vez que cambien las dependencias
+
   const handleDrawerToggle = () => {
     setOpen(!open);
+
+    if (open) {
+      // Cuando el Drawer se cierra, cerramos todos los submenús
+      setMenuState({
+        publicaciones: false,
+        usuarios: false,
+        comentarios: false,
+        paginas: false,
+        ajustes: false,
+      });
+    }
   };
 
   const toggleMenu = (menu) => {
@@ -109,6 +156,7 @@ export default function NavbarLateral() {
           usuarios: false,
           comentarios: false,
           paginas: false,
+          ajustes: false,
         };
         newState[menu] = !prevState[menu]; // Alterna el submenú
         return newState;
@@ -124,6 +172,7 @@ export default function NavbarLateral() {
           usuarios: false,
           comentarios: false,
           paginas: false,
+          ajustes: false,
         };
         newState[menu] = !prevState[menu]; // Alterna el submenú
         return newState;
@@ -140,6 +189,7 @@ export default function NavbarLateral() {
           usuarios: false,
           comentarios: false,
           paginas: false,
+          ajustes: false,
         };
         newState[menu] = !prevState[menu]; // Alterna el submenú
         return newState;
@@ -154,6 +204,7 @@ export default function NavbarLateral() {
           usuarios: false,
           comentarios: false,
           paginas: false,
+          ajustes: false,
         };
         newState[menu] = !prevState[menu]; // Alterna el submenú
         return newState;
@@ -162,7 +213,7 @@ export default function NavbarLateral() {
   };
 
   return (
-    <Drawer variant="permanent" open={open}>
+    <Drawer ref={drawerRef} variant="permanent" open={open}>
       <Box
         sx={{
           display: 'flex',
@@ -308,15 +359,6 @@ export default function NavbarLateral() {
             <ListItemButton sx={{ pl: 4 }} onClick={() => handleMenuSelect('todos-comentarios')}>
               {open ? (
                 <ListItemText primary="Todos los comentarios" sx={{ color: 'var(--text-color)' }} />
-              ) : (
-                <ListItemIcon sx={{ color: 'var(--text-color)' }}>
-                  <CommentIcon />
-                </ListItemIcon>
-              )}
-            </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }} onClick={() => handleMenuSelect('comentarios-pendientes')}>
-              {open ? (
-                <ListItemText primary="Comentarios pendientes" sx={{ color: 'var(--text-color)' }} />
               ) : (
                 <ListItemIcon sx={{ color: 'var(--text-color)' }}>
                   <CommentIcon />
