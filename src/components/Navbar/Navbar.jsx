@@ -13,6 +13,8 @@ const Navbar = () => {
     <AppBar
       position="static"
       sx={{
+        position: 'fixed',
+        zIndex: 10,
         fontFamily: 'var(--font-family)',
         backgroundColor: 'var(--background-color)',
         boxShadow: 'none',
